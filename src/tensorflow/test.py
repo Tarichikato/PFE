@@ -6,7 +6,7 @@ import tensorflow as tf
 import neuralgym as ng
 import os
 
-from src.architechtures.generative_inpainting.inpaint_model import InpaintCAModel
+from ..architechtures.generative_inpainting.inpaint_model import InpaintCAModel
 
 
 parser = argparse.ArgumentParser()

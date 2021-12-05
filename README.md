@@ -22,3 +22,8 @@ Be carefull your masks need to be at 255 where your cloud is and 0 where it isn'
  3 : execute python test_tf.py --dataset database --task XXX
  
  Your reconstructed images are in ../experiments/TaskXXX/results
+
+
+To test with the demo images execute : python test_tf.py --dataset test1 --task 001
+
+I will soon add a link with a database to download

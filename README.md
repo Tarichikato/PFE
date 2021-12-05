@@ -20,8 +20,8 @@ You can give your files the names you want but corrsponding image and mask need 
 Be carefull your masks need to be at 255 where your cloud is and 0 where it isn't. It may also change in the futur.
      
  3 : execute 
-    cd src
-    python test_tf.py --dataset database --task XXX
+        cd src
+        python test_tf.py --dataset database --task XXX
  
  Your reconstructed images are in ../experiments/TaskXXX/results
 

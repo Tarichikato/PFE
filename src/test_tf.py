@@ -27,10 +27,11 @@ if __name__ == "__main__":
     # ng.get_gpus(1)
     args, unknown = parser.parse_known_args()
 
-    for file in os.listdir(f"../..data/{args.dataset}/images"):
+    for file in os.listdir(f"../data/{args.dataset}/images"):
         model = InpaintCAModel()
-        image = cv2.imread(f"../..data/{args.dataset}/images/{file}")
-        mask = cv2.imread(f"../..data/{args.dataset}/masks/{file}")
+        id = file.split('.')[0]
+        image = cv2.imread(f"../data/{args.dataset}/images/{file}")
+        mask = cv2.imread(f"../data/{args.dataset}/masks/{id}.png")
         # mask = cv2.resize(mask, (0,0), fx=0.5, fy=0.5)
 
         assert image.shape == mask.shape
@@ -59,9 +60,9 @@ if __name__ == "__main__":
             for var in vars_list:
                 vname = var.name
                 from_name = vname
-                var_value = tf.contrib.framework.load_variable(f"{args.task}/models", from_name)
+                var_value = tf.contrib.framework.load_variable(f"../experiments/Task{args.task}/models", from_name)
                 assign_ops.append(tf.assign(var, var_value))
             sess.run(assign_ops)
             print('Model loaded.')
             result = sess.run(output)
-            cv2.imwrite(f"../../experiments/Task{args.task}/results/{file}", result[0][:, :, ::-1])
+            cv2.imwrite(f"../experiments/Task{args.task}/results/{file}", result[0][:, :, ::-1])

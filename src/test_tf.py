@@ -28,8 +28,10 @@ if __name__ == "__main__":
     # ng.get_gpus(1)
     args, unknown = parser.parse_known_args()
 
+
     input_images = np.array([])
     i = 0
+
     for file in os.listdir(f"../data/{args.dataset}/images"):
         id = file.split('.')[0]
         image = cv2.imread(f"../data/{args.dataset}/images/{file}")

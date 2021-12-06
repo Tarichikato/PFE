@@ -2,7 +2,7 @@
 
 You can test with the model you want
 
-For the tf_test.py file you need tensorflow 1.15.0
+For the test_tf.py file you need tensorflow 1.15.0
 
 1 : First download the models from [HERE](https://drive.google.com/drive/folders/14NAl7_aFo5CKsfZtikx-7ugfuKobisI8?usp=sharing)  and put them in TaskXXX/models
 

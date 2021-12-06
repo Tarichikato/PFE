@@ -5,6 +5,7 @@ import numpy as np
 import tensorflow as tf
 import neuralgym as ng
 import os
+import time
 
 
 from architechtures.generative_inpainting.inpaint_model import InpaintCAModel
@@ -28,6 +29,7 @@ if __name__ == "__main__":
     args, unknown = parser.parse_known_args()
 
     for file in os.listdir(f"../data/{args.dataset}/images"):
+        t1 = time.time()
         model = InpaintCAModel()
         id = file.split('.')[0]
         image = cv2.imread(f"../data/{args.dataset}/images/{file}")
@@ -66,3 +68,5 @@ if __name__ == "__main__":
             print('Model loaded.')
             result = sess.run(output)
             cv2.imwrite(f"../experiments/Task{args.task}/results/{file}", result[0][:, :, ::-1])
+        t2 = time.time()
+        print(f"Time : {t2-t1}")

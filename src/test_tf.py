@@ -27,6 +27,7 @@ if __name__ == "__main__":
     # ng.get_gpus(1)
     args, unknown = parser.parse_known_args()
 
+    #Cette facon de faire est très lente et pas du tout optimisée. Je règlerai ca dès que possible
     for file in os.listdir(f"../data/{args.dataset}/images"):
         model = InpaintCAModel()
         id = file.split('.')[0]
